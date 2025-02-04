@@ -1,4 +1,4 @@
-# HNG Stage 1 Task - classify number
+# HNG Stage 1 Task - Classify Number
 
 ## Features
 - Identifies if the number is:
@@ -20,12 +20,12 @@
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/your-username/number-classification-api.git
+   git clone https://github.com/Chinweike99/hng12-backend-task1.git
    ```
 
 2. Navigate to the project directory:
    ```bash
-   cd number-classification-api
+   cd hng12-backend-task1
    ```
 
 3. Install dependencies:
@@ -38,7 +38,7 @@
    npm start
    ```
 
-The server will start on `http://localhost:3100` by default.
+The server will start on `http://localhost:3000` by default.
 
 ## API Endpoints
 
@@ -72,12 +72,12 @@ GET /api/classify-number?number=<number>
 
 ## Helper Functions
 The following helper functions are used to calculate mathematical properties:
-
+- `isPrime(num)`: Checks if the number is prime.
+- `isPerfect(num)`: Checks if the number is perfect.
+- `isArmstrong(num)`: Checks if the number is an Armstrong number.
+- `digitSum(num)`: Calculates the sum of the digits of the number.
 
 ## Development
 For local development:
-- Modify the helper functions in `helpers.js`.
-- Ensure `index.js` imports functions correctly from `helpers.js`.
-
-
-
+- Modify the helper functions in `herpers.js`.
+- Ensure `index.js` imports functions correctly from `herpers.js`.
