@@ -1,47 +1,13 @@
 import express from 'express';
 import cors from 'cors';
 import axios from 'axios';
+import { primeNumber, perfectNumber, isArmstrong, digitSum } from "./herpers.js";
 
 const app = express();
 const port = process.env.PORT || 3000;
 
 // Enable CORS
 app.use(cors());
-
-// Function to check if num is a prime number
-const isPrime = (num) => {
-  if (num < 2) return false;
-  for (let i = 2; i <= Math.sqrt(num); i++) {
-    if (num % i === 0) return false;
-  }
-  return true;
-};
-
-// Function to check if number is perfect
-const isPerfect = (num) => {
-  let sum = 0;
-  for (let i = 1; i < num; i++) {
-    if (num % i === 0) sum += i;
-  }
-  return sum === num;
-};
-
-// Function to check if number is Armstrong
-const isArmstrong = (num) => {
-  const digits = String(num).split("");
-  const sum = digits.reduce(
-    (acc, digit) => acc + Math.pow(Number(digit), digits.length),
-    0
-  );
-  return sum === num;
-};
-
-// Function to calculate the sum of digits
-const digitSum = (num) => {
-  return String(num)
-    .split("")
-    .reduce((acc, digit) => acc + Number(digit), 0);
-};
 
 // API endpoint
 app.get("/api/classify-number", async (req, res) => {
@@ -77,8 +43,8 @@ app.get("/api/classify-number", async (req, res) => {
   // Prepare response
   const response = {
     number: num,
-    is_prime: isPrime(num),
-    is_perfect: isPerfect(num),
+    is_prime: primeNumber(num),
+    is_perfect: perfectNumber(num),
     properties: properties,
     digit_sum: digitSum(num),
     fun_fact: funFact,
